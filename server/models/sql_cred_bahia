@@ -1,0 +1,13 @@
+{
+"user": "clientes_usr",
+"database":"BAHIA",
+"server":"db.gabssa.app",
+"password":"Hu37$%R645G53&",
+"requestTimeout": 300000,
+	"pool": {
+				"max": 10000
+				},
+	"options":{
+				"tdsVersion":"7_1"
+				}
+}

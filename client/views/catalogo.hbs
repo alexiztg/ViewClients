@@ -1,0 +1,202 @@
+<style>
+  .chart-container {
+height: 420px !important;
+}
+</style>
+<div ng-controller="catalogoCtrl" style="padding-left: 20px; padding-right:20px;" ng-init="init()">
+
+  <div class="ui grid">
+
+
+    <div class="ui form">
+
+      <div class="field">
+        <label for="">Carteras</label>
+        <select class="ui dropdown selected" ng-model="cliente_id"  ng-options="opt.cliente_id as opt.nombre for opt in lista_clientes" ng-change="cambiarCliente()"></select>
+      {[cliente_id]}
+      </div> 
+      <br>
+    </div>
+
+    <div class="ui styled fluid accordion">
+            <div class="title active">
+              <i class="dropdown icon"></i>
+              HOME
+            </div>
+            <div class="content active">
+
+              <center style="font-size:30px;">Posiciones Clientes</center><br><br>
+
+              <div class="ui grid">
+
+                <div class="eight wide column">
+                    <div class="ui segment">
+                        <canvas width="600" height="250" id="myChart" class="chart-container">
+                        </canvas>
+                    </div>
+                </div>        
+
+                <div class="eight wide column">
+                    <div class="ui segment">
+                        <div class="ui horizontal statistics">
+                          <div class="statistic">
+                            <div class="label">
+                            Asesores Telefonicos:
+                            </div>
+                            <div class="value">
+                              {[datos_telefonicos.telefonicos| number]}
+                            </div>
+                          </div>
+                          <div class="statistic">
+                            <div class="label">
+                              Asesores Domiciliarios:
+                            </div>
+                            <div class="value">
+                              {[datos_domiciliaria.domiciliaria]}
+                            </div>
+                          </div>
+                          <div class="statistic">
+                            <div class="label">
+                              Administrativos:
+                            </div>
+                            <div class="value">
+                              {[datos_admin.admin]}
+                            </div>
+                          </div>
+                          <div class="statistic">
+                            <div class="label">
+                              Sistemas:
+                            </div>
+                            <div class="value">
+                              {[datos_sistemas.sistemas]}
+                            </div>
+                          </div><div class="statistic">
+                            <div class="label">
+                              Recursos Humanos:
+                            </div>
+                            <div class="value">
+                              {[datos_rh.rh]}
+                            </div>
+                          </div><div class="statistic">
+                            <div class="label">
+                              Limpieza:
+                            </div>
+                            <div class="value">
+                              {[datos_limpieza.limpieza]}
+                            </div>
+                          </div>
+                        </div>
+        
+                    </div>
+                </div>        
+
+              </div>
+
+            </div>
+            
+
+            <div class="title">
+              <i class="dropdown icon"></i>
+              Direciones 
+                  <div style="float: right;">
+                      <i class="plus icon"></i>
+                  </div>
+            </div>
+            <div class="content">
+              <p class="transition">Las direcciones proporcionadas son:</p>
+                <div class="accordion transition">
+                  
+                  <div ng-repeat="l in listDirecciones">
+                    <div class="title">
+                        <i class="dropdown icon"></i>
+                        {[l.nombre]}
+                    </div>
+                    <div class="content">
+                        {[l.calledir]} {[l.numerodir]} {[l.nombredir]}
+                          <div style="float: right;">
+                              <i class="edit icon"></i>
+                              <i class="trash icon"></i>
+                          </div>
+                    </div>
+                  </div>
+
+                </div>
+            </div>
+            
+
+            <div class="title">
+              <i class="dropdown icon"></i>
+              Proyectos
+                  <div style="float: right;">
+                      <i class="plus icon"></i>
+                  </div>
+            </div>
+            <div class="content">
+              <p class="transition">Los proyectos que se tienen son:</p>
+                <div class="accordion transition">
+                  
+                  <div ng-repeat="l in listProyectos">
+                    <div class="title">
+                        <i class="dropdown icon"></i>
+                        {[l.proyecto]} 
+                    </div>
+                    <div class="content">
+                        {[l.fecha]} {[l.empresa]} {[l.proyecto]}
+                            <div style="float: right;">
+                              <i class="edit icon"></i>
+                              <i class="trash icon"></i>
+                            </div>
+                    </div>
+                  </div>
+
+                </div>
+            </div>
+
+            <div class="title">
+              <i class="dropdown icon"></i>
+              Contacto
+                  <div style="float: right;">
+                      <i class="plus icon"></i>
+                  </div>
+            </div>
+            <div class="content">
+              <p class="transition hidden">Los contactos que se tienen son:</p>
+                <div class="accordion transition hidden">
+                 
+                
+                <div ng-repeat="l in listContac">
+                    <div class="title">
+                        <i class="dropdown icon"></i>
+                        {[l.cliente]}
+                    </div>
+                    <div class="content">
+                        {[l.proyecto]} {[l.cliente]}
+                            <div style="float: right;">
+                              <i class="edit icon"></i>
+                              <i class="trash icon"></i>
+                            </div>
+                    </div>
+                  </div>
+
+
+                </div>
+            </div>
+
+
+
+
+
+          </div>
+
+    <div class="sixteen wide column">
+      <div class="ui segment">
+        <h4>Informacion</h4>
+        <div class="ui divider"></div>
+        <p>Clientes: {[datos_list.totalcli]}</p>
+        <p>Proyectos: {[datos_list1.totalpro]}</p>
+        <p>Posiciones {[datos_list2.totalpos]}</p>
+      </div>
+    </div>
+  </div>
+
+</div>

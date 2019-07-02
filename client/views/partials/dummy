@@ -1,0 +1,28 @@
+<div class="ui grid" ng-controller="catalogoCtrl" ng-init="init()">
+  <div class="eight wide column">
+    <table class="ui table">
+      <thead>
+        <th>Cliente Id</th>
+        <th>Fecha Alta</th>
+        <th>Nombre</th>
+        <th>Usuario Id</th>
+        <th>razon_social</th>
+        <th>activo</th>
+        <th>fecha baja</th>
+        <th>Nota</th>        
+      </thead>
+      <tbody>
+        <tr ng-repeat="dato in datos_list">
+          <td>{[dato.cliente_id]}</td>
+          <td>{[dato.fecha_alta]}</td>
+          <td>{[dato.nombre]}</td>
+          <td>{[dato.usuario_id]}</td>
+          <td>{[dato.razon_social]}</td>
+          <td>{[dato.activo]}</td>
+          <td>{[dato.fecha_baja]}</td>
+          <td>{[dato.nota]}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>     
